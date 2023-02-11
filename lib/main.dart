@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pad_project/pages/are_you.dart';
+import 'package:pad_project/pages/donation_confirm.dart';
 import 'package:pad_project/pages/login.dart';
 import 'package:pad_project/pages/pad_list.dart';
 import 'package:pad_project/pages/setup_birthday.dart';
+import 'package:pad_project/pages/setup_donator_info.dart';
 import 'package:pad_project/pages/setup_infomation.dart';
 import 'package:pad_project/pages/setup_photo.dart';
 
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.pink,
       ),
-      home: PadListPage(title: ''),
+      home: DonationConfirmPage(title: ''),
     );
   }
 }
