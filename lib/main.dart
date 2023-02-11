@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pad_project/pages/setup_birthday.dart';
+import 'package:pad_project/pages/setup_infomation.dart';
+import 'package:pad_project/pages/setup_photo.dart';
 
 void main() {
   runApp(const MyApp());
