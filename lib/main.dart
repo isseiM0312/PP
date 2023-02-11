@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './pages/setup_nickname.dart';
 import './pages/setup_padApplication.dart';
 import './pages/setup_padDonation.dart';
+import './pages/matchWithConsumer.dart';
 import 'package:pad_project/pages/are_you.dart';
 import 'package:pad_project/pages/login.dart';
 import 'package:pad_project/pages/pad_list.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
       ),
 
-      home: PadListPage(title: ''),
+      home: matchWithConsumer(title: ''),
     );
   }
 }
