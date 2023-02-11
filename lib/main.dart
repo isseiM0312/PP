@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/are_you.dart';
+import 'package:pad_project/pages/login.dart';
 import 'package:pad_project/pages/setup_birthday.dart';
 import 'package:pad_project/pages/setup_infomation.dart';
 import 'package:pad_project/pages/setup_photo.dart';
@@ -25,9 +27,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
       ),
-      home: BirthdayPage(title: 'Flutter Demo Home Page'),
+      home: AreYouPage(title: ''),
     );
   }
 }
