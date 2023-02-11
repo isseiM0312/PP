@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pad_project/pages/are_you.dart';
 import 'package:pad_project/pages/login.dart';
+import 'package:pad_project/pages/setup_birthday.dart';
 import 'package:pad_project/pages/setup_infomation.dart';
 import 'package:pad_project/pages/setup_photo.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Pridge',
       theme: ThemeData(
         // This is the theme of your application.
         //

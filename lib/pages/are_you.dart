@@ -26,7 +26,7 @@ class _AreYouPageState extends State<AreYouPage> {
               'I need this app to...',
               style: TextStyle(
                   color: Colors.pink,
-                  fontSize: 20,
+                  fontSize: 30,
                   fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 10,),
@@ -34,7 +34,7 @@ class _AreYouPageState extends State<AreYouPage> {
               '''If you are a supporter, tap ‘TO GIVE’ 
 or if you need pad, tap ‘TO GET’..''',
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 80,),
             Container(
               height: 120,
               width: 300,
@@ -43,13 +43,15 @@ or if you need pad, tap ‘TO GET’..''',
               child:Center(child:Text("TO GIVE",style: TextStyle(color: Colors.white,fontSize: 40, fontWeight: FontWeight.w700),))
             ),
             const SizedBox(height: 40,),
-            Container(
+            Stack(children:[
+              Padding(padding: EdgeInsets.only(left: 200),child: SizedBox(height: 100,width: 100,child: Image.asset('assets/images/get-money.png')),)
+              ,Container(
               height: 120,
               width: 300,
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(border: Border.all(color: Colors.pink),borderRadius: BorderRadius.circular(10) ),
-              child:Center(child:Text("TO GIVE",style: TextStyle(color: Colors.pink,fontSize: 40, fontWeight: FontWeight.w700),))
-            ),
+              child:Center(child:Text("TO GET",style: TextStyle(color: Colors.pink,fontSize: 40, fontWeight: FontWeight.w700),))
+            )]),
             
           ]
         ),
