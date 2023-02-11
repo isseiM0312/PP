@@ -1,8 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:pad_project/components/progress_bar.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class ProccessingPage extends StatefulWidget {
   const ProccessingPage({super.key, required this.title});
