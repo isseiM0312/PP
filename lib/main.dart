@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/are_you.dart';
+import 'package:pad_project/pages/login.dart';
 import 'package:pad_project/pages/setup_infomation.dart';
 import 'package:pad_project/pages/setup_photo.dart';
 
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.pink,
       ),
-      home: SetUpPhotonPage(title: ''),
+      home: AreYouPage(title: ''),
     );
   }
 }
