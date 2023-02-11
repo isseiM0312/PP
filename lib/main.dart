@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import './pages/setup_nickname.dart';
+import './pages/setup_padApplication.dart';
+import './pages/setup_padDonation.dart';
 import 'package:pad_project/pages/are_you.dart';
 import 'package:pad_project/pages/donation_confirm.dart';
 import 'package:pad_project/pages/login.dart';
