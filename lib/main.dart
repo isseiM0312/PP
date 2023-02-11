@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/processing.dart';
+import 'package:pad_project/pages/sertificate.dart';
+import 'package:pad_project/pages/thanks_page.dart';
+import 'package:pad_project/pages/tracker.dart';
 import './pages/setup_nickname.dart';
 import './pages/setup_padApplication.dart';
 import './pages/setup_padDonation.dart';
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.pink,
       ),
-      home: DonationConfirmPage(title: ''),
+      home: SertificatePage(title: ''),
     );
   }
 }
