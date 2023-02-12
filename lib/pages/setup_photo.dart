@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'package:pad_project/pages/setup_nickname.dart';
+
 class SetUpPhotonPage extends StatefulWidget {
   const SetUpPhotonPage({super.key, required this.title});
 
@@ -29,23 +31,21 @@ class _SetUpPhotonPageState extends State<SetUpPhotonPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            (const Text(
               'Upload your profile photo',
               style: TextStyle(
                   color: Colors.pink,
-                  fontSize: 20,
+                  fontSize: 25,
                   fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: 10,),
+            )),
+            const SizedBox(height: 60,),
             const Text(
-              'Take a new photo or upload from your library to set your profile photo.',
+              'Take a new photo or upload from your library \n to set your profile photo.',
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20,),
            ClipRRect(
@@ -61,8 +61,24 @@ class _SetUpPhotonPageState extends State<SetUpPhotonPage> {
               child: (_image != null) ?
                      Image.file(_image!) : Center(
                 child: Icon(Icons.camera,color: Colors.grey,),
-              ),)))
-           
+              ),))),
+              const SizedBox(height: 30,),
+           ElevatedButton(
+              onPressed: () {
+                 Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return SetupNickNamePage(title: widget.title,);
+        },
+      ),
+    );
+              },
+              child:Padding(
+                padding: EdgeInsets.only(left: 120,right: 120),
+                child: Text("Next")),
+              style: TextButton.styleFrom(
+                  primary: Colors.white, backgroundColor: Colors.pink),
+            ),
           ],
         ),
       ),

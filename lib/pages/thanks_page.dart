@@ -14,9 +14,6 @@ class _ThanksPageState extends State<ThanksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: 
          Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -49,7 +46,7 @@ class _ThanksPageState extends State<ThanksPage> {
                 SizedBox(
                   width: 100,
                   height: 59,
-                  child:Image.network('https://source.unsplash.com//800x400')),
+                  child:Image.asset('assets/images/pad.png')),
                 const SizedBox(width: 40,),
                 Column(children: [
                  const Text('Pad name',style: TextStyle(color: Colors.pink,fontSize: 20,fontWeight: FontWeight.w700),),

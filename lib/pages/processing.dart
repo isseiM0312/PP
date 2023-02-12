@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/matching_completed.dart';
 
 class ProccessingPage extends StatefulWidget {
   const ProccessingPage({super.key, required this.title});
@@ -23,6 +24,17 @@ class _ProccessingPageState extends State<ProccessingPage> with SingleTickerProv
     _controller =
         AnimationController(duration: Duration(seconds: 1), vsync: this);
    //_tween = Tween(begin: 0,end: 8).animate(_controller);
+
+   Future.delayed(Duration(seconds: 1)).then((value) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return MatchingCompletedgPage(title: 'girl',);
+        },
+      ),
+    );
+   });
+   
   }
 
    @override
@@ -34,28 +46,17 @@ class _ProccessingPageState extends State<ProccessingPage> with SingleTickerProv
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
+        flexibleSpace: Padding(
+          padding: EdgeInsets.only(top: 30),
+          child:SizedBox(width: 80,child: Image.asset('assets/images/appBar.png'),)),
       ),
       body: AnimatedBuilder(animation: _controller,builder: ((context, child) {
         return Center(child:
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:[
-          /* CircularStepProgressIndicator(
-        totalSteps: 8,
-        currentStep: 23,
-        stepSize: 24,
-        selectedColor: Colors.pink,
-        padding: pi / 5,
-        width: 100,
-        height: 100,
-        startingAngle: - pi / 36,
-        arcSize: pi * 2,
-        gradientColor: SweepGradient(
-          startAngle: - pi / 36,
-            colors: [Colors.pink, Colors.pink.shade300, Colors.white],
-        ),
-    ), */
    SizedBox(
     height: 100,
     width: 100,

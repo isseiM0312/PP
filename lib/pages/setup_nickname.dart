@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/setup_birthday.dart';
+import 'package:pad_project/pages/setup_padApplication.dart';
 
 
 
@@ -27,20 +29,19 @@ class _SetupNickNamePageState extends State<SetupNickNamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'What would you like us to call you?',
+              'What would you like us \n to call you?',
+              textAlign: TextAlign.center,
               style: TextStyle(
                   color: Colors.pink,
-                  fontWeight: FontWeight.w900,
-                  fontSize: 30),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 25),
             ),
+            const SizedBox(height: 100,),
             const Text(
               "Please don't use your real name",
               style: TextStyle(
@@ -49,7 +50,7 @@ class _SetupNickNamePageState extends State<SetupNickNamePage> {
                   height:1.5),
             ),
             const SizedBox(
-              height:10
+              height:70
             ),
             SizedBox(
               width: 300,
@@ -59,6 +60,23 @@ class _SetupNickNamePageState extends State<SetupNickNamePage> {
                   hintText: 'Nickname',
                 ),
               ),
+            ),
+            const SizedBox(height: 30,),
+             ElevatedButton(
+              onPressed: () {
+                 Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return BirthdayPage(title: widget.title,);
+        },
+      ),
+    );
+              },
+              child: Padding(
+                padding: EdgeInsets.only(left: 120,right: 120),
+                child: Text("Next")),
+              style: TextButton.styleFrom(
+                  primary: Colors.white, backgroundColor: Colors.pink),
             ),
           ],
         ),

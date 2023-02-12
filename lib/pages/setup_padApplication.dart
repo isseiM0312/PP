@@ -16,7 +16,11 @@ class _setupPadAppState extends State<setupPadApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
+        flexibleSpace: Padding(
+          padding: EdgeInsets.only(top: 30),
+          child:SizedBox(width: 80,child: Image.asset('assets/images/appBar.png'),)),
       ),
       body: Center(
         child: Padding(
@@ -48,7 +52,7 @@ class _setupPadAppState extends State<setupPadApp> {
                   height: 400,
                   width: 400,
                   child: Image(
-                    image: AssetImage('assets/images/stayfreemaxi28_1.jpg'),
+                    image: AssetImage('assets/images/pad.png'),
                   ),
                 ),
                 const SizedBox(
