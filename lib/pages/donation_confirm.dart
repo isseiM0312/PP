@@ -21,12 +21,52 @@ class _DonationConfirmPageState extends State<DonationConfirmPage> {
   }
 
   @override
+
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+       showModalBottomSheet(
+                    isScrollControlled: true,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(20))),
+                    context: context,
+                     // showModalBottomSheetで表示される中身
+                    builder: (context) => ViewComments(),
+                  );
+
+    });
+      }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+      appBar: AppBar(leading: InkWell(
+          child: Container(
+            padding: EdgeInsets.only(left: 30,top: 5),
+                  width: 40,
+                  height: 40,
+                  child: InkWell(
+                    onTap: () {
+                      // Code to execute when the button is pressed
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "<",
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400
+                      ),
+                    ),
+                  ),
+                ),
+        ),
+        foregroundColor: Colors.white,
         backgroundColor: Colors.white,
-        
+        flexibleSpace: Padding(
+          padding: EdgeInsets.only(top: 30),
+          child:SizedBox(width: 80,child: Image.asset('assets/images/appBar.png'),)),
       ),
       body:  Container(
         margin: EdgeInsets.only(left: 20,top: 20),
@@ -45,7 +85,7 @@ class _DonationConfirmPageState extends State<DonationConfirmPage> {
                   const SizedBox(height: 20,),
                   SizedBox(
                     width: 140,
-                    child: Image.network('https://source.unsplash.com//800x600'),)
+                    child: Image.asset('assets/images/pad.png'),)
                 ],
               ),
                 const SizedBox(width: 20,),
@@ -58,7 +98,11 @@ class _DonationConfirmPageState extends State<DonationConfirmPage> {
                   const SizedBox(height: 10,),
                   Text('12pcs for 1 pack'),
                   const SizedBox(height: 60,),
-                  Row(children: [Text('1 pack'),SizedBox(width: 60,child: Image.asset('assets/images/dot.png'),), Text('\$12',style: TextStyle(fontSize: 36,fontWeight: FontWeight.w700,color: Colors.pink),)],)
+                  Row(children: [Text('1 pack'),SizedBox(width: 60,child: Image.asset('assets/images/dot.png'),),
+                  if (widget.title == 'donator') Text('\$12',style: TextStyle(fontSize: 36,fontWeight: FontWeight.w700,color: Colors.pink),)
+                  else Text('24p',style: TextStyle(fontSize: 30,fontWeight: FontWeight.w700,color: Colors.pink),)
+                  ],)
+                  
                 ],
               )
             ])
@@ -74,22 +118,15 @@ class _DonationConfirmPageState extends State<DonationConfirmPage> {
               child: Row(children: [
               Text('Total',style: TextStyle(fontSize: 30,fontWeight: FontWeight.w700),),
               SizedBox(width: 100,child: Image.asset('assets/images/dot.png'),),
-              Text('\$12',style: TextStyle(fontSize: 36,fontWeight: FontWeight.w700,color: Colors.pink),)
+              if(widget.title == 'donator') Text('\$12',style: TextStyle(fontSize: 36,fontWeight: FontWeight.w700,color: Colors.pink),)
+              else Text('2h',style: TextStyle(fontSize: 36,fontWeight: FontWeight.w700,color: Colors.pink),)
             ]),),
 
           ]
         )),
-        floatingActionButton: FloatingActionButton(onPressed: (() {
-          showModalBottomSheet(
-                    isScrollControlled: true,
-                    shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(20))),
-                    context: context,
-                     // showModalBottomSheetで表示される中身
-                    builder: (context) => ViewComments(),
-                  );
-        })),
+        /* floatingActionButton: FloatingActionButton(onPressed: (() {
+         
+        })), */
     );
   }
 }

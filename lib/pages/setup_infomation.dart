@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/navibation.dart';
 
 class SetUpInformationPage extends StatefulWidget {
   const SetUpInformationPage({super.key, required this.title});
@@ -29,9 +30,6 @@ class _SetUpInformationPageState extends State<SetUpInformationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -175,6 +173,15 @@ class _SetUpInformationPageState extends State<SetUpInformationPage> {
               height: 20,
             ),
             InkWell(
+              onTap: () {
+                Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return NavigationPage(title: 'girl',);;
+        },
+      ),
+    );
+              },
               child: Container(
                 width: 280,
                 height: 30,

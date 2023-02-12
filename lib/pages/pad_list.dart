@@ -1,5 +1,9 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:pad_project/pages/setup_padApplication.dart';
+import 'package:pad_project/pages/setup_padDonation.dart';
 
 class PadListPage extends StatefulWidget {
   const PadListPage({super.key, required this.title});
@@ -59,12 +63,18 @@ class _PadListPageState extends State<PadListPage> {
     },
   ];
   double _fontSize = 14;
+  String title = '';
 
   @override
   Widget build(BuildContext context) {
+    title = widget.title;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
+        flexibleSpace: Padding(
+          padding: EdgeInsets.only(top: 30),
+          child:SizedBox(width: 80,child: Image.asset('assets/images/appBar.png'),)),
       ),
       body: Center(
         child: Column(
@@ -92,7 +102,7 @@ class _PadListPageState extends State<PadListPage> {
             Container(
               height: 500,
               padding: EdgeInsets.only(left: 16),
-              child:SingleChildScrollView(child:padCardList(mockPads)),),
+              child:SingleChildScrollView(child:padCardList(mockPads,context,widget.title)),),
             const SizedBox(height: 20,)
 
           ],
@@ -128,16 +138,16 @@ Widget tag(String title) {
   );
 }
 
-Widget padCardList(List<Map<String,dynamic>> padList) {
+Widget padCardList(List<Map<String,dynamic>> padList,BuildContext context,String title) {
   int length = padList.length ~/ 2 + padList.length%2;
   List<Widget> tempList = [];
   for (int i = 0; i < length; i++) {
     tempList.add(
       Row(
         children: [
-          padCard('https://source.unsplash.com//800x600' , padList[i * 2]["title"], padList[i * 2]["detail"], padList[i * 2]["price"]),
+          padCard('assets/images/pad.png' , padList[i * 2]["title"], padList[i * 2]["detail"], padList[i * 2]["price"],context,title),
           const SizedBox(width: 20,),
-         if(i * 2 + 1 <= padList.length -1) padCard('https://source.unsplash.com//800x600' , padList[i * 2 + 1]["title"], padList[i * 2 + 1]["detail"], padList[i * 2 + 1]["price"]),
+         if(i * 2 + 1 <= padList.length -1) padCard('assets/images/pad.png' , padList[i * 2 + 1]["title"], padList[i * 2 + 1]["detail"], padList[i * 2 + 1]["price"],context,title),
         ],
       )
     );
@@ -148,8 +158,18 @@ Widget padCardList(List<Map<String,dynamic>> padList) {
   );
 }
 
-Widget padCard(String image,String padName,String detail, int price) {
-  return Card(
+Widget padCard(String image,String padName,String detail, int price,BuildContext context,String title) {
+  return InkWell(
+    onTap: () {
+      Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return setupPadDon(title: '');
+        },
+      ),
+    );
+    },
+    child:Card(
     child:
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,14 +177,14 @@ Widget padCard(String image,String padName,String detail, int price) {
       SizedBox(
         height: 80,
         width: 160,
-        child:Image.network(image)),
+        child:Image.asset(image)),
       const SizedBox(height: 10,),
       Text(padName,style: const TextStyle(color: Colors.pink,fontSize: 20,fontWeight: FontWeight.w700),),
       const SizedBox(height: 10,),
       Text(detail,style: const TextStyle(fontSize: 15,),),
-      Padding(
+     if(title == 'donator')  Padding(
         padding: EdgeInsets.only(left: 100),
         child:Text("\$$price" ,style: const TextStyle(color: Colors.pink,fontSize: 25,fontWeight: FontWeight.w700),textAlign: TextAlign.end,),
     )],)
-  );
+  ));
 }

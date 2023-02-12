@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/thanks_page.dart';
 
 class TrackerPage extends StatefulWidget {
   const TrackerPage({super.key, required this.title});
@@ -17,13 +18,18 @@ class _TrackerPageState extends State<TrackerPage> {
   //ate Animation _tween;
 
    int _index = 0;
+   int _index2 = 2;
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
+        flexibleSpace: Padding(
+          padding: EdgeInsets.only(top: 30),
+          child:SizedBox(width: 80,child: Image.asset('assets/images/appBar.png'),)),
       ),
       body: Column(children: [
         SizedBox(child: Row(children: [SizedBox(height: 50,child: Image.asset('assets/images/pplogo.png'),),
@@ -72,18 +78,18 @@ class _TrackerPageState extends State<TrackerPage> {
         //9
         Step(
           //10
-          isActive: (_index == 0),
+          isActive: (_index >= 0),
           title: Text('Matching',style: TextStyle(fontSize: 12),),
           //11
           content: const SizedBox.shrink(),
         ),
         Step(
-          isActive: (_index == 1),
+          isActive: (_index >= 1),
           title: Text('Shipping',style: TextStyle(fontSize: 12)),
           content: const SizedBox.shrink(),
         ),
         Step(
-          isActive: (_index == 2),
+          isActive: (_index >= 2),
           title: Text('Delivered',style: TextStyle(fontSize: 12)),
           content: const SizedBox.shrink(),
         ),
@@ -143,30 +149,40 @@ class _TrackerPageState extends State<TrackerPage> {
         //9
         Step(
           //10
-          isActive: (_index == 0),
+          isActive: (_index2 >= 0),
           title: Text('Matching',style: TextStyle(fontSize: 12),),
           //11
           content: const SizedBox.shrink(),
         ),
         Step(
-          isActive: (_index == 1),
+          isActive: (_index2 >= 1),
           title: Text('Shipping',style: TextStyle(fontSize: 12)),
           content: const SizedBox.shrink(),
         ),
         Step(
-          isActive: (_index == 2),
+          isActive: (_index2 >= 2),
           title: Text('Delivered',style: TextStyle(fontSize: 12)),
           content: const SizedBox.shrink(),
         ),
       ],
     ),
       ),
-     Container(
+     InkWell(
+      onTap: () {
+         Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return ThanksPage(title: 'donator',);;
+        },
+      ),
+    );
+      },
+      child:Container(
         width: 200,
         height: 50,
-        decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
-        child: Center(child:Text('Read Thank You Letter')),
-      ),
+        decoration: BoxDecoration(border: Border.all(color: Colors.pink)),
+        child: Center(child:Text('Read Thank You Letter',style: TextStyle(color: Colors.pink),)),
+      )),
       ]),  
     
     );

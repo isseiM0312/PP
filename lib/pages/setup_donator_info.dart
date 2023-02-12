@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/navibation.dart';
+import 'package:pad_project/pages/pad_list.dart';
 
 class SetupDonatorInfoPage extends StatefulWidget {
   const SetupDonatorInfoPage({super.key, required this.title});
@@ -13,9 +15,6 @@ class _SetupDonatorInfoPageState extends State<SetupDonatorInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -132,6 +131,15 @@ class _SetupDonatorInfoPageState extends State<SetupDonatorInfoPage> {
               Text('')
             ]),),
             InkWell(
+              onTap: () {
+                 Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) {
+          return NavigationPage(title: widget.title);
+        },
+      ),
+    );
+              },
               child: Container(
                 width: 150,
                 height: 60,

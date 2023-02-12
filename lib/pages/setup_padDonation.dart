@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pad_project/pages/donation_confirm.dart';
 
 
 class setupPadDon extends StatefulWidget {
@@ -16,7 +17,32 @@ class _setupPadDonState extends State<setupPadDon> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        leading: InkWell(
+          child: Container(
+            padding: EdgeInsets.only(left: 30,top: 5),
+                  width: 40,
+                  height: 40,
+                  child: InkWell(
+                    onTap: () {
+                      // Code to execute when the button is pressed
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "<",
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400
+                      ),
+                    ),
+                  ),
+                ),
+        ),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.white,
+        flexibleSpace: Padding(
+          padding: EdgeInsets.only(top: 30),
+          child:SizedBox(width: 80,child: Image.asset('assets/images/appBar.png'),)),
       ),
       body: Center(
         child: Padding(
@@ -26,29 +52,12 @@ class _setupPadDonState extends State<setupPadDon> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 //back button
-                Container(
-                  margin:EdgeInsets.only(right:400),
-                  width: 40,
-                  height: 40,
-                  child: InkWell(
-                    onTap: () {
-                      // Code to execute when the button is pressed
-                    },
-                    child: Text(
-                      "<",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
                 //sanitary pad picture
                 Container(
                   height: 400,
                   width: 400,
                   child: Image(
-                    image: AssetImage('assets/images/stayfreemaxi28_1.jpg'),
+                    image: AssetImage('assets/images/pad.png'),
                   ),
                 ),
                 const SizedBox(
@@ -80,9 +89,17 @@ class _setupPadDonState extends State<setupPadDon> {
                       // Code to execute when the button is pressed
                     },
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                         Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return DonationConfirmPage(title: 'girl');
+        },
+      ),
+    );
+                      },
                       child: Text(
-                        "Donate pads",
+                        "Apply pads",
                         style: TextStyle(
                           fontSize: 25,
                         ),
